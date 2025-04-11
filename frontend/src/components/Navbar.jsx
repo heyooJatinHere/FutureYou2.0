@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import FuturisticButton from "./ui/FuturisticButton";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -63,9 +64,11 @@ const NavBar = () => {
           <a href="#how-it-works" className="text-indigo-200 hover:text-indigo-400 font-rajdhani font-medium tracking-wide transition-colors">
             HOW IT WORKS
           </a>
-          <a href="#quiz" className="px-6 py-2 bg-indigo-400 bg-opacity-20 border border-indigo-400 rounded-full text-indigo-50 hover:bg-opacity-30 transition font-rajdhani font-medium tracking-wide">
+          {/* <a href="#quiz" className="px-6 py-2 bg-indigo-400 bg-opacity-20 border border-indigo-400 rounded-full text-indigo-50 hover:bg-opacity-30 transition font-rajdhani font-medium tracking-wide">
             START QUIZ
-          </a>
+          </a> */}
+          <FuturisticButton href="#quiz" className="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-400 to-blue-950 text-indigo-200 font-rajdhani font-medium tracking-wider text-lg shadow-lg">START QUIZ</FuturisticButton>
+
         </div>
       </div>
 
@@ -91,13 +94,16 @@ const NavBar = () => {
           >
             HOW IT WORKS
           </a>
-          <a
+          {/* <a
             href="#quiz"
             onClick={() => setMobileMenuOpen(false)}
             className="px-6 py-2 bg-indigo-400 bg-opacity-20 border border-indigo-400 rounded-full text-indigo-50 hover:bg-opacity-30 transition font-rajdhani font-medium tracking-wide text-center "
           >
             START QUIZ
-          </a>
+          </a> */}
+          <FuturisticButton href="#" onClick={() => setMobileMenuOpen(false)}
+            className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-400 to-blue-950 text-indigo-200 font-rajdhani font-medium tracking-wider text-lg shadow-lg">START QUIZ</FuturisticButton>            
+          
         </div>
       </motion.div>
     </motion.nav>
