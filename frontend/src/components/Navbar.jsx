@@ -39,9 +39,9 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <Link href="/" className="text-2xl font-orbitron font-bold tracking-wider text-indigo-200 flex items-center">
+          <Link href="/" className="text-2xl font-orbitron font-bold tracking-wider text-indigo-300 flex items-center">
             <span className="text-shadow-lg/20">FUTURE</span>
-            <span className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-blue-950">YOU</span>
+            <span className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-blue-500 to-sky-600">YOU</span>
           </Link>
         </div>
 

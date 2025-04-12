@@ -1,86 +1,141 @@
-import React, { useEffect, useState, useMemo } from 'react'
+
+
+import React, { useEffect, useState, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
-    const [init, setInit]=useState(false);
-    useEffect(()=>{
-        initParticlesEngine(async(engine)=>{
-            await loadSlim(engine);
-        }).then(()=>{
-            setInit(true);
-        });
-    },[]);
+  const [init, setInit] = useState(false);
 
-    const particlesLoaded = (container) => {
-        console.log("Particles Loaded:", container);
-      };
-    
-      const options = useMemo(() => ({
-        background: {
-          color: "#14151f",
-        },
-        fpsLimit: 60,
-        interactivity: {
-          events: {
-            onClick: { enable: true, mode: "push" },
-            onHover: { enable: true, mode: "repulse" },
-          },
-          modes: {
-            push: { quantity: 4 },
-            repulse: { distance: 200, duration: 0.4 },
-          },
-        },
-        particles: {
-          color: { value: "#f1f1f1" },
-          links: {
-            color: "#ffffff",
-            distance: 150,
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  const particlesLoaded = useCallback((container) => {
+    console.log("Particles Loaded:", container);
+  }, []);
+
+  const options = useMemo(
+    () => ({
+      fullScreen: false,
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 100,
+          density: {
             enable: true,
-            opacity: 0.5,
-            width: 1,
+            value_area: 800,
           },
-          move: {
-            direction: "none",
+        },
+        color: {
+          value: "#f1f1f1",
+        },
+        shape: {
+          type: "circle",
+        },
+        opacity: {
+          value: 0.3,
+          random: true,
+          animation: {
             enable: true,
-            outModes: { default: "bounce" },
-            random: false,
+            speed: 1,
+            minimumValue: 0.1,
+            sync: false,
+          },
+        },
+        size: {
+          value: 3,
+          random: true,
+          animation: {
+            enable: true,
             speed: 2,
-            straight: false,
+            minimumValue: 0.1,
+            sync: false,
           },
-          number: {
-            density: { enable: true, area: 1080 },
-            value: 200,
+        },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.2,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: {
+            default: "out",
           },
-          opacity: {
-            value: { min: 0.1, max: 0.5 },
-            animation: {
-              enable: true,
-              speed: 1,
-              minimumValue: 0.1,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200,
+          },
+        },
+      },
+      interactivity: {
+        detectsOn: "canvas",
+        events: {
+          onHover: {
+            enable: true,
+            mode: "grab",
+          },
+          onClick: {
+            enable: true,
+            mode: "push",
+          },
+          resize: true,
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            links: {
+              opacity: 0.5,
             },
           },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            value: { min: 0.5, max: 1.5 },
-            random: { enable: true },
+          push: {
+            quantity: 4,
           },
         },
-        detectRetina: true,
-      }), []);
+      },
+      detectRetina: true,
+      background: {
+        color: {
+          value: "#14151f",
+        },
+        image: "",
+        position: "50% 50%",
+        repeat: "no-repeat",
+        size: "cover",
+      },
+    }),
+    []
+  );
+
   return (
-    <div>
-        {init && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="fixed inset-0 z-0 bg-[#14151f]"
+    >
+      {init && (
         <Particles
           id="tsparticles"
           options={options}
           particlesLoaded={particlesLoaded}
         />
       )}
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
-export default ParticlesBackground
+export default ParticlesBackground;
