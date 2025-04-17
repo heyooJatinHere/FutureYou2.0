@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from './pages/Home.jsx'
 import { Route, Switch } from 'wouter'
+import DynamicQuiz from './components/Quiz.jsx'
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       {/* <h1 className='text-red-400'>App</h1> */}
       <Switch>
       <Route path="/" component={Home} />
+      <Route path="/quiz" component={DynamicQuiz} />
 
      
       {/* Optionally a fallback route */}

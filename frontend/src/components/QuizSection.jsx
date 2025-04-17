@@ -6,21 +6,21 @@ import { ProcessCard } from "./ui/ProcessCard";
 const quizCategories = [
   {
     icon: <User className="text-emerald-950" />,
-    title: "Personal Habits & Lifestyle",
+    title: "Health & Lifestyle",
     description:
-      "Questions about your daily routines, habits, and lifestyle choices.",
+      "Your habits, fitness, diet, and sleep patterns",
   },
   {
     icon: <Briefcase className="text-emerald-950" />,
-    title: "Career & Ambitions",
+    title: "Career & Skills",
     description:
-      "Questions about your work ethic, goals, and professional aspirations.",
+      "Your job goals, learning, and productivity.",
   },
   {
     icon: <Heart className="text-emerald-950" />,
-    title: "Relationships & Social Life",
+    title: "Finance & Spending",
     description:
-      "Questions about how you connect with others and maintain relationships.",
+      "Your income, savings, and financial planning.",
   },
 ];
 
@@ -90,7 +90,7 @@ const QuizSection = () => {
             className="text-center"
           >
             <FuturisticButton
-              href="#"
+              href="/quiz"
               className="px-10 py-4 rounded-full bg-gradient-to-r from-indigo-300 to-blue-950 text-indigo-300 font-rajdhani font-bold tracking-wider text-lg shadow-lg"
             >
               BEGIN THE QUIZ

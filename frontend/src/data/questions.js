@@ -1,0 +1,246 @@
+// questions.js
+
+export const questions = [
+    // Phase 1: Personal Information (Base Profile)
+    {
+      id: "q1",
+      question: "What is your age?",
+      type: "input",  // Type input field for age
+    },
+    {
+      id: "q2",
+      question: "What is your gender?",
+      type: "select", // Type dropdown for gender
+      options: [
+        { label: "Male", value: "male" },
+        { label: "Female", value: "female" },
+        { label: "Other", value: "other" }
+      ]
+    },
+  
+    // Phase 2: Current Health & Lifestyle
+    {
+      id: "q3",
+      question: "How many servings of fruits and vegetables do you eat per day?",
+      type: "select",
+      options: [
+        { label: "0–1", value: "0-1" },
+        { label: "2–3", value: "2-3" },
+        { label: "4+", value: "4+" }
+      ]
+    },
+    {
+      id: "q4",
+      question: "How often do you eat fast food?",
+      type: "select",
+      options: [
+        { label: "Rarely", value: "rarely" },
+        { label: "1–2 times per week", value: "1-2" },
+        { label: "3+ times per week", value: "3+" }
+      ]
+    },
+    {
+      id: "q5",
+      question: "How much water do you drink daily?",
+      type: "select",
+      options: [
+        { label: "Less than 1L", value: "less-1l" },
+        { label: "1–2L", value: "1-2l" },
+        { label: "2L+", value: "2l+" }
+      ]
+    },
+  
+    // Phase 3: Physical Activity
+    {
+      id: "q6",
+      question: "Do you exercise regularly?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes", followUp: "q7" }, // Follow-up question based on "Yes"
+        { label: "No", value: "no", followUp: "q8" } // Follow-up question based on "No"
+      ]
+    },
+    {
+      id: "q7",
+      question: "What type of exercise do you usually do?",
+      type: "select",
+      options: [
+        { label: "Cardio", value: "cardio" },
+        { label: "Strength Training", value: "strength" },
+        { label: "Yoga/Pilates", value: "yoga" },
+        { label: "No regular exercise", value: "no-exercise" }
+      ]
+    },
+    {
+      id: "q8",
+      question: "How many days per week do you exercise?",
+      type: "select",
+      options: [
+        { label: "0", value: "0" },
+        { label: "1–2", value: "1-2" },
+        { label: "3–4", value: "3-4" },
+        { label: "5+", value: "5+" }
+      ]
+    },
+  
+    {
+      id: "q9",
+      question: "Do you have a sedentary job/lifestyle?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" }
+      ]
+    },
+  
+    // Phase 4: Sleep Patterns
+    {
+      id: "q10",
+      question: "How many hours of sleep do you get daily?",
+      type: "select",
+      options: [
+        { label: "Less than 6 hours", value: "less-6" },
+        { label: "6–7 hours", value: "6-7" },
+        { label: "7–8 hours", value: "7-8" },
+        { label: "More than 8 hours", value: "more-8" }
+      ]
+    },
+    {
+      id: "q11",
+      question: "Do you feel refreshed in the morning?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" }
+      ]
+    },
+    {
+      id: "q12",
+      question: "Do you have trouble falling asleep or staying asleep?",
+      type: "select",
+      options: [
+        { label: "Often", value: "often" },
+        { label: "Sometimes", value: "sometimes" },
+        { label: "Never", value: "never" }
+      ]
+    },
+  
+    // Phase 5: Mental Health
+    {
+      id: "q13",
+      question: "How often do you feel stressed or anxious?",
+      type: "select",
+      options: [
+        { label: "Rarely", value: "rarely" },
+        { label: "Occasionally", value: "occasionally" },
+        { label: "Often", value: "often" }
+      ]
+    },
+    {
+      id: "q14",
+      question: "Do you feel socially connected or isolated?",
+      type: "select",
+      options: [
+        { label: "Connected", value: "connected" },
+        { label: "Somewhat connected", value: "somewhat" },
+        { label: "Isolated", value: "isolated" }
+      ]
+    },
+    {
+      id: "q15",
+      question: "Do you experience mood swings or prolonged sadness?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" }
+      ]
+    },
+  
+    // Phase 6: Substance Use
+    {
+      id: "q16",
+      question: "Do you smoke or use tobacco?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" }
+      ]
+    },
+    {
+      id: "q17",
+      question: "Do you consume alcohol?",
+      type: "select",
+      options: [
+        { label: "Never", value: "never" },
+        { label: "Occasionally", value: "occasionally" },
+        { label: "Frequently", value: "frequently" }
+      ]
+    },
+    {
+      id: "q18",
+      question: "Do you use recreational drugs?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" }
+      ]
+    },
+  
+    // Phase 7: Medical History
+    {
+      id: "q19",
+      question: "Do you have any of the following diagnosed conditions? (Check all that apply)",
+      type: "multiple-select",
+      options: [
+        { label: "High blood pressure", value: "high-bp" },
+        { label: "Diabetes", value: "diabetes" },
+        { label: "Heart disease", value: "heart-disease" },
+        { label: "Asthma", value: "asthma" },
+        { label: "None", value: "none" }
+      ]
+    },
+    {
+      id: "q20",
+      question: "Are you currently taking any medications?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" }
+      ]
+    },
+    {
+      id: "q21",
+      question: "Do you have any family history of major illnesses (heart disease, cancer, diabetes, etc.)?",
+      type: "select",
+      options: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" }
+      ]
+    },
+  
+    // Phase 8: Biometrics
+    {
+      id: "q22",
+      question: "What is your height?",
+      type: "input"
+    },
+    {
+      id: "q23",
+      question: "What is your weight?",
+      type: "input"
+    },
+    {
+      id: "q24",
+      question: "If known, what is your blood pressure level?",
+      type: "input"
+    },
+    {
+      id: "q25",
+      question: "If known, what is your blood sugar/cholesterol level?",
+      type: "input"
+    }
+  ];
+  
+  
+  
+  

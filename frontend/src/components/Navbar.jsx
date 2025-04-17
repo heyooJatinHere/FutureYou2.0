@@ -40,8 +40,7 @@ const NavBar = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-orbitron font-bold tracking-wider text-indigo-300 flex items-center">
-            <span className="text-shadow-lg/20">FUTURE</span>
-            <span className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-blue-500 to-sky-600">YOU</span>
+            <span className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-blue-500 to-sky-600">LOOMO</span>
           </Link>
         </div>
 
@@ -79,7 +78,7 @@ const NavBar = () => {
         transition={{ duration: 0.3 }}
         className={`md:hidden bg-dark-800 bg-opacity-90 backdrop-blur-lg border-t border-indigo-400/20 overflow-hidden`}
       >
-        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <div className="container mx-auto px-4 py-4 flex flex-col items-center justify-center space-y-4">
           <a
             href="#about"
             onClick={() => setMobileMenuOpen(false)}
@@ -101,7 +100,7 @@ const NavBar = () => {
           >
             START QUIZ
           </a> */}
-          <FuturisticButton href="#" onClick={() => setMobileMenuOpen(false)}
+          <FuturisticButton href="/quiz" onClick={() => setMobileMenuOpen(false)}
             className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-400 to-blue-950 text-indigo-200 font-rajdhani font-medium tracking-wider text-lg shadow-lg">START QUIZ</FuturisticButton>            
           
         </div>

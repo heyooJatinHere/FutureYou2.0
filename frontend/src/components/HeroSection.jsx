@@ -7,25 +7,25 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 ,y: 50}}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
             className="text-4xl md:text-6xl lg:text-7xl font-orbitron font-bold leading-tight mb-8"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-blue-500 to-sky-600 ">
-              Discover Your
+            Shape Your Future
             </span>
             <br />
-            <span className="text-shadow-lg/20 text-indigo-300">Future Self</span>
+            <span className="text-shadow-lg/20 text-indigo-300">Today</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-200 mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl font-rajdhani text-slate-200 mb-12 max-w-2xl mx-auto"
           >
-            Using advanced AI technology to predict your future based on your current habits, choices, and aspirations. See who you could become in the next decade.
+            Loomo helps you make smarter choices for your health, career, and finances with personalized insights powered by AI. Plan your future with confidence and clarity.
           </motion.p>
 
           <motion.div
@@ -35,7 +35,7 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6"
           >
             <FuturisticButton
-              href="#quiz"
+              href="/quiz"
               className="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-400 to-blue-950 text-indigo-200 font-rajdhani font-bold tracking-wider text-lg shadow-lg"
             >
               START YOUR JOURNEY
