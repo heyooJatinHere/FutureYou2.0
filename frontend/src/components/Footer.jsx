@@ -54,7 +54,7 @@ const Footer = () => {
         {/* Bottom Copyright */}
         <div className="border-t border-indigo-400 border-opacity-20 mt-12 pt-8 text-center">
           <p className="text-slate-300 text-sm">
-            &copy; {new Date().getFullYear()} Future You Simulator. All rights reserved.
+            &copy; {new Date().getFullYear()} LOOMO - The Future Simulator. All rights reserved.
           </p>
         </div>
       </div>
