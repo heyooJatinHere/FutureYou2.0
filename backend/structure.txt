@@ -1,0 +1,36 @@
+backend/
+│
+├── controllers/         # Route logic (handling quiz submission, prediction logic)
+│   ├── healthController.js
+│   ├── careerController.js
+│   └── financeController.js
+│
+├── models/              # MongoDB models (if using Mongoose)
+│   ├── User.js
+│   ├── QuizResponse.js
+│   └── PredictionResult.js
+│
+├── routes/              # API routes
+│   ├── healthRoutes.js
+│   ├── careerRoutes.js
+│   └── financeRoutes.js
+│
+├── services/            # External API/ML logic (OpenAI, Gemini, etc.)
+│   ├── healthAI.js
+│   ├── careerAI.js
+│   └── financeAI.js
+│
+├── utils/               # Utility functions (e.g., age group calculator, score normalizer)
+│   └── branchingLogic.js
+│
+├── config/              # DB config, API keys, etc.
+│   ├── db.js
+│   └── openaiConfig.js
+│
+├── middleware/          # Auth, error handlers, rate limiting
+│   └── errorHandler.js
+│
+├── .env                 # Environment variables
+├── app.js               # Express app setup
+├── server.js            # Server entry point
+└── package.json
