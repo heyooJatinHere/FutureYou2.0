@@ -125,7 +125,7 @@ const ParticlesBackground = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="fixed inset-0 z-0 bg-[#14151f]"
+      className="fixed inset-0 z-0 bg-[#14151f] h-screen w-screen"
     >
       {init && (
         <Particles
