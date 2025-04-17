@@ -49,6 +49,6 @@ This project is under the MIT License.
 
 ## 🙌 Acknowledgements
 
-- Fonts from [Google Fonts]()
-- Icons by [Lucide]()
-- AI powered by [Google Gemini]()
+- Fonts from [Google Fonts](https://fonts.google.com/)
+- Icons by [Lucide](https://lucide.dev/guide/packages/lucide-react)
+- AI powered by [Google Gemini](https://ai.google.dev/gemini-api/docs/api-key)
