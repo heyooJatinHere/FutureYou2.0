@@ -1,12 +1,44 @@
-# React + Vite
+# 🌌 Loomo — Shape Your Future Today
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Loomo** is an AI-powered life planning assistant that helps individuals make smarter decisions about their **Health**, **Career**, and **Finances**. Built as an interactive quiz platform, Loomo delivers personalized insights and guidance based on your unique responses — all through a beautiful, futuristic user interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✨ **Interactive Quiz Flow** – Engaging, dynamic quiz that adapts as you answer.
+- 🧠 **AI-Generated Insights** – Smart recommendations and predictions tailored to your lifestyle, habits, and goals.
+- 🧭 **Guidance Across Key Areas** – Understand your future possibilities in health, career, and finance.
+- 🎯 **Minimal, Clean UI** – Built with React 19, Tailwind CSS v4, and Framer Motion for smooth animations.
+- ⚡ **Quick Start** – No sign-up required. Just start the quiz and explore your future.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧱 Tech Stack
+
+| Layer        | Tech                       |
+|--------------|----------------------------|
+| Frontend     | React 19, Vite, Tailwind CSS v4, Framer Motion |
+| Backend      | Node.js, Express.js        |
+| AI Engine    | OpenAI (for insight generation) |
+| Hosting      | Vercel (Frontend), Render (Backend) |
+| Styling      | Custom Orbitron & Rajdhani fonts |
+
+---
+
+## 🌐 Live Demo
+
+👉 [Loomo is live on Vercel](https://vercel.com/heyoojatinheres-projects/future-you2-0)  
+(*Replace with your actual link*)
+
+---
+
+## 📌 How It Works
+
+1. Users answer a series of thought-provoking questions.
+2. The system evaluates answers across three life domains.
+3. AI analyzes inputs and returns a personalized future forecast.
+4. Users get visual insights, tips, and a clear direction.
+
+---
+
