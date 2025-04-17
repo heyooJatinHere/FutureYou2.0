@@ -36,7 +36,7 @@ const AboutSection = () => {
           className="text-center mb-16 relative z-[1]"
         >
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-blue-500 to-sky-600">
-            About Future You
+            About LOOMO
           </h2>
           <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
         </motion.div>
