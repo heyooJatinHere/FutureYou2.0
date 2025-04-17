@@ -9,8 +9,7 @@ const Footer = () => {
           {/* Brand & Socials */}
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="text-2xl font-orbitron font-bold tracking-wider text-indigo-400 flex items-center mb-4">
-              <span className="text-shadow-glow">FUTURE</span>
-              <span className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-blue-500 to-sky-600">YOU</span>
+              <span className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-blue-500 to-sky-600">LOOMO</span>
             </Link>
             <p className="text-slate-300 mb-6">
               Discover who you'll become in the next decade with our AI-powered prediction technology.
