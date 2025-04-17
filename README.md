@@ -1,4 +1,4 @@
-# 🌌 Loomo — Shape Your Future Today
+# 🌌 Loomo — Shape Your Future, Today
 
 **Loomo** is an AI-powered life planning assistant that helps individuals make smarter decisions about their **Health**, **Career**, and **Finances**. Built as an interactive quiz platform, Loomo delivers personalized insights and guidance based on your unique responses — all through a beautiful, futuristic user interface.
 
