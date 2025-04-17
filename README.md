@@ -20,7 +20,7 @@
 |--------------|----------------------------|
 | Frontend     | React 19, Vite, Tailwind CSS v4, Framer Motion |
 | Backend      | Node.js, Express.js        |
-| AI Engine    | OpenAI (for insight generation) |
+| AI Engine    | Google Gemini (for insight generation) |
 | Hosting      | Vercel (Frontend), Render (Backend) |
 | Styling      | Custom Orbitron & Rajdhani fonts |
 
@@ -28,8 +28,7 @@
 
 ## 🌐 Live Demo
 
-👉 [Loomo is live on Vercel](https://vercel.com/heyoojatinheres-projects/future-you2-0)  
-(*Replace with your actual link*)
+👉 [Loomo is live on Vercel](https://future-you2-0.vercel.app/)  
 
 ---
 
@@ -42,3 +41,14 @@
 
 ---
 
+## 📜 License
+
+This project is under the MIT License.
+
+---
+
+## 🙌 Acknowledgements
+
+- Fonts from [Google Fonts]()
+- Icons by [Lucide]()
+- AI powered by [Google Gemini]()
