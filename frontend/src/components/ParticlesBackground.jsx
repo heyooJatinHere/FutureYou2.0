@@ -132,6 +132,7 @@ const ParticlesBackground = () => {
           id="tsparticles"
           options={options}
           particlesLoaded={particlesLoaded}
+          className="w-full h-full"
         />
       )}
     </motion.div>
