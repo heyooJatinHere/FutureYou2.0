@@ -14,6 +14,10 @@ app.use('/api/questions', questionsRoutes);
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }); // use env for safety
 
+app.get("/", (req, res) => {
+    res.send("API working!");
+  });
+
 app.post("/submit-answers", async (req, res) => {
   try {
     const answers = req.body;
