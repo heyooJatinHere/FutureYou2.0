@@ -7,7 +7,7 @@ import questionsRoutes from "../routes/questions.js";
 dotenv.config();
 
 const app=express();
-app.use(cors({origin:"http://localhost:5173"}));
+app.use(cors({origin:"8"}));
 app.use(express.json());
 
 app.use('/api/questions', questionsRoutes);
