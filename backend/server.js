@@ -12,7 +12,11 @@ app.use(express.json());
 
 app.use('/api/questions', questionsRoutes);
 
-const ai=new GoogleGenAI({apiKey:"AIzaSyAar_OaARHZ3FvyejjkTXlroDetQtZBBBg"})
+const ai=new GoogleGenAI({apiKey:process.env.GEMINI_API_KEY})
+
+app.post('/',(req,res)=>{
+    
+})
 
 app.post("/submit-answers", async (req,res)=>{
     try{
