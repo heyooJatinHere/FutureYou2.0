@@ -6,24 +6,19 @@ import questionsRoutes from "../routes/questions.js";
 
 dotenv.config();
 
-const app=express();
-app.use(cors({origin:"8"}));
+const app = express();
+app.use(cors({ origin: "https://future-you2-0.vercel.app/" })); // Update if your frontend is also deployed
 app.use(express.json());
 
 app.use('/api/questions', questionsRoutes);
 
-const ai=new GoogleGenAI({apiKey:process.env.GEMINI_API_KEY})
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }); // use env for safety
 
-app.post('/',(req,res)=>{
-    
-})
+app.post("/submit-answers", async (req, res) => {
+  try {
+    const answers = req.body;
 
-app.post("/submit-answers", async (req,res)=>{
-    try{
-        const answers = req.body;
-        // console.log("Received answers:", answers);
-        
-        const prompt = `You are an AI-powered future prediction system designed to help users visualize their health outcomes based on their current lifestyle, habits, and medical history.  
+    const prompt = `You are an AI-powered future prediction system designed to help users visualize their health outcomes based on their current lifestyle, habits, and medical history.  
 The user has answered the following health-related questions:
 
 1. Age: ${answers.q1}  
@@ -57,47 +52,37 @@ The user has answered the following health-related questions:
 ### Instructions:
 
 1. Analyze the user's raw answers and predict their **health status 10 years from now**, focusing on:
-   - **Physical Health**: Based on exercise, nutrition, hydration, weight, sleep, and existing medical conditions.
-   - **Mental Health**: Based on sleep quality, stress, social connection, and mood indicators.
-   - **Lifestyle Risks**: Based on sedentary habits, substance use, and family/medical history.
+   - **Physical Health**
+   - **Mental Health**
+   - **Lifestyle Risks**
 
-2. Speak **directly to the user** in a motivational yet realistic tone. Your role is to help them understand the trajectory they're on and guide them toward better health outcomes.
+2. Speak **directly to the user** in a motivational yet realistic tone.
 
-3. After the prediction, provide a **Recommendations** section with 3–5 actionable tips tailored to the user’s current habits and risks. Focus especially on areas that need improvement.
+3. After the prediction, provide a **Recommendations** section with 3–5 actionable tips tailored to the user’s current habits and risks.
 
 4. Keep the response concise, around **150–200 words** total.
 
-5. Avoid any playful or vague language—be **clear, encouraging, and specific**.
-
 ---
 
-**Health Outlook (10 Years From Now):** [Insert prediction here]  
-**Mental Well-being:** [Insert prediction here]  
-**Lifestyle Risks and Concerns:** [Insert prediction here]  
-**Recommendations:** [3–5 bullet points with clear, actionable advice]
-`;
+**Health Outlook (10 Years From Now):**  
+**Mental Well-being:**  
+**Lifestyle Risks and Concerns:**  
+**Recommendations:**`;
 
-        const result = await ai.models.generateContent({
-            model:"gemini-2.0-flash",
-            contents:prompt,
-        })
-        // console.log("Raw result:",result);
-        // console.log("Content:",result.candidates[0].content);
-        
-        const response=result.text;
-        console.log("Ai response",response);
-        res.status(200).json({ analysis: response });
+    const result = await ai.models.generateContent({
+      model: "gemini-2.0-flash",
+      contents: prompt,
+    });
 
-    }catch(error){
-        console.log("Error:",error);
-        res.status(500).json({error:"Something went wrong"});
-    }
-})
+    const response = result.text;
+    console.log("AI Response:", response);
+    res.status(200).json({ analysis: response });
 
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Something went wrong" });
+  }
+});
 
-
-// const PORT=5000;
-
-// app.listen(PORT,()=>console.log(`Server is running on ${PORT}`));
-
+// ✅ For Vercel deployment: export app, no app.listen()
 export default app;
