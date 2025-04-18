@@ -1,10 +1,39 @@
-import React, { useState } from "react";
-import { questions } from "../data/questions";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Quiz = () => {
+  const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
+  const navigate=useNavigate();
 
+    // Fetch questions from backend
+    useEffect(() => {
+      const fetchQuestions = async () => {
+        try {
+          const res = await fetch("http://localhost:5000/api/questions/health");
+          const data = await res.json();
+          setQuestions(data);
+          setLoading(false);
+        } catch (error) {
+          console.error("Error fetching questions:", error);
+          setLoading(false);
+        }
+      };
+  
+      fetchQuestions();
+    }, []);
+
+  // Guard until data is loaded
+  if (loading) return <div className="p-10 text-center">Loading questions...</div>;
+  if (!questions.length) return <div className="p-10 text-center">No questions found.</div>;
+
+  if (submitted || currentQuestionIndex >= questions.length) {
+    return <div className="p-10 text-center">Submitting your answers...</div>;
+  }
+  
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerChange = (value) => {
@@ -12,6 +41,8 @@ const Quiz = () => {
       ...prev,
       [currentQuestion.id]: value,
     }));
+
+    
   
     // If it's a select question, auto move to next (after a short delay)
     if (currentQuestion.type === "select") {
@@ -30,7 +61,9 @@ const Quiz = () => {
         setCurrentQuestionIndex((prev) => prev + 1);
       }, 300); // slight delay for smoothness
     }
+    
   };
+  console.log("Users Answers:", answers);
   
 
   const goNext = () => {
@@ -59,10 +92,31 @@ const Quiz = () => {
 
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
+  const sendAnswersToBackend=async(answers)=>{
+    try{
+      setSubmitted(true);
+      console.log("Sending Answers:",answers);
+      const response=await fetch('http://localhost:5000/submit-answers', {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(answers)
+      });
+      const text= await response.text();
+      const data=JSON.parse(text);
+      console.log("Data Recieved:",data);
+
+      navigate("/result", { state: { analysis: data.analysis } });
+      
+    }catch(error){
+      console.error("Error sending answers:", error);
+    }
+  }
+
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
       <div className="bg-white shadow-2xl rounded-2xl p-8 max-w-xl w-full">
-        {/* Progress */}
+        {/* Progress */} {/* ProgressBar */}
         <div className="mb-4 text-sm text-gray-500">
           Question {currentQuestionIndex + 1} of {questions.length}
         </div>
@@ -111,7 +165,8 @@ const Quiz = () => {
 
           {isLastQuestion ? (
             <button
-              onClick={() => console.log("Answers:", answers)}
+            onClick={ ()=>sendAnswersToBackend(answers) }
+            
               disabled={!answers[currentQuestion.id]}
               className="bg-green-600 text-white px-5 py-2 rounded-xl hover:bg-green-700 disabled:opacity-50"
             >
