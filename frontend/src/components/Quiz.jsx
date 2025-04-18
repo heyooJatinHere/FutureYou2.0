@@ -13,7 +13,7 @@ const Quiz = () => {
     useEffect(() => {
       const fetchQuestions = async () => {
         try {
-          const res = await fetch("http://localhost:5000/api/questions/health");
+          const res = await fetch("https://loomo-ai-heyoojatinheres-projects.vercel.app/questions/health");
           const data = await res.json();
           setQuestions(data);
           setLoading(false);
@@ -96,7 +96,7 @@ const Quiz = () => {
     try{
       setSubmitted(true);
       console.log("Sending Answers:",answers);
-      const response=await fetch('http://localhost:5000/submit-answers', {
+      const response=await fetch('https://loomo-ai-heyoojatinheres-projects.vercel.app/submit-answers', {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(answers)
