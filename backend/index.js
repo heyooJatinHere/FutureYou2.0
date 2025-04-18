@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
-import questionsRoutes from "../routes/questions.js";
+import questionsRoutes from "./routes/questions.js";
 
 dotenv.config();
 
