@@ -5,6 +5,10 @@ import path from 'path';
 
 const router = express.Router();
 
+router.get('/',(req, res)=>{
+  res.send("question route is working!!!")
+})
+
 router.get('/health', (req, res) => {
   try {
     const filePath = path.resolve('data', 'health.json');
