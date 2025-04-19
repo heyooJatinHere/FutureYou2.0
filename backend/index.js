@@ -18,6 +18,11 @@ app.get("/", (req, res) => {
     res.send("API working!");
   });
 
+  app.get("/submit-answers", (req, res) => {
+    res.send("This route accepts POST requests only.");
+  });
+  
+
 app.post("/submit-answers", async (req, res) => {
   try {
     const answers = req.body;
