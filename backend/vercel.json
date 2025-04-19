@@ -5,7 +5,7 @@
         "src": "./index.js",
         "use": "@vercel/node",
         "config": {
-          "includeFiles": ["data/health.json"]
+          "includeFiles": ["./data/health.json"]
         }
       }
         
