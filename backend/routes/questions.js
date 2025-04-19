@@ -9,9 +9,14 @@ router.get('/', (req, res) => {
 
 
 router.get('/health', (req, res) => {
-  const data = JSON.parse(fs.readFileSync('./data/health.json', 'utf-8'));
-  res.send("Health Route");
-  res.json(data);
+  try {
+    const data = JSON.parse(fs.readFileSync('./data/health.json', 'utf-8'));
+    res.json(data);
+  } catch (error) {
+    console.error("Error reading health.json:", error);
+    res.status(500).json({ error: "Failed to load questions" });
+  }
 });
+
 
 export default router;
