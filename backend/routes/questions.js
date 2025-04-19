@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 router.get('/health', (req, res) => {
   const data = JSON.parse(fs.readFileSync('./data/health.json', 'utf-8'));
   res.json(data);
+  res.send(data);
 });
 
 export default router;
