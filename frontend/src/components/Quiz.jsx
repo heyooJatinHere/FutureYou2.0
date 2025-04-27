@@ -13,9 +13,10 @@ const Quiz = () => {
     useEffect(() => {
       const fetchQuestions = async () => {
         try {
-          const res = await fetch("https://loomo-ai-heyoojatinheres-projects.vercel.app/api/questions/health");
+          const res = await fetch("https://loomo-ai.vercel.app/api/questions/health");
           const data = await res.json();
           setQuestions(data);
+          console.log(questions);
           setLoading(false);
         } catch (error) {
           console.error("Error fetching questions:", error);

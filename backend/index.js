@@ -7,7 +7,8 @@ import questionsRoutes from "./routes/questions.js";
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "https://future-you2-0.vercel.app" }));
+app.use(cors({ origin: "https://future-you2-0.vercel.app/" }));
+// app.use(cors());
 app.use(express.json());
 
 app.use('/api/questions', questionsRoutes);
@@ -92,6 +93,10 @@ The user has answered the following health-related questions:
     res.status(500).json({ error: "Something went wrong" });
   }
 });
+
+app.listen(5000,(req, res)=>{
+  console.log("server is running on 5000...");
+})
 
 // ✅ For Vercel deployment: export app, no app.listen()
 export default app;

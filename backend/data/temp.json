@@ -223,18 +223,3 @@
     }
   ]
   
-11. Refreshed after sleep: ${answers.q11}  
-12. Trouble sleeping: ${answers.q12}  
-13. Stress/anxiety frequency: ${answers.q13}  
-14. Social connection: ${answers.q14}  
-15. Mood swings/sadness: ${answers.q15}  
-16. Tobacco use: ${answers.q16}  
-17. Alcohol use: ${answers.q17}  
-18. Recreational drug use: ${answers.q18}  
-19. Diagnosed medical conditions: ${answers.q19}  
-20. Current medications: ${answers.q20}  
-21. Family history of illness: ${answers.q21}  
-22. Height: ${answers.q22}  
-23. Weight: ${answers.q23}  
-24. Known blood pressure level: ${answers.q24}  
-25. Known blood sugar/cholesterol level: ${answers.q25}

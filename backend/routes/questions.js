@@ -11,9 +11,11 @@ router.get('/',(req, res)=>{
 
 router.get('/health', (req, res) => {
   try {
-    const filePath = path.resolve('data', 'health.json');
+    const filePath = path.resolve('data', 'temp.json');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    console.log(data);
     res.json(data);
+
   } catch (error) {
     console.error("Error reading health.json:", error);
     res.status(500).json({ error: "Failed to load questions" });
