@@ -7,8 +7,8 @@ import questionsRoutes from "./routes/questions.js";
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "https://future-you2-0.vercel.app" }));
-// app.use(cors());
+// app.use(cors({ origin: "https://future-you2-0.vercel.app" }));
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/questions', questionsRoutes);
