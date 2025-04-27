@@ -11,7 +11,7 @@ router.get('/',(req, res)=>{
 
 router.get('/health', (req, res) => {
   try {
-    const filePath = path.resolve('data', 'health.json');
+    const filePath = path.resolve('public', 'health.json');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     console.log(data);
     res.json(data);
