@@ -11,11 +11,7 @@ router.get('/',(req, res)=>{
 
 router.get('/health', (req, res) => {
   try {
-<<<<<<< HEAD
     const filePath = path.join(__dirname,'..','public', 'data', 'health.json');
-=======
-    const filePath = path.join('public', 'health.json');
->>>>>>> parent of e04907e (try 1)
     const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     console.log(data);
     res.json(data);
