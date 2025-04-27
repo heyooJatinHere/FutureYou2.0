@@ -13,7 +13,7 @@ const Quiz = () => {
     useEffect(() => {
       const fetchQuestions = async () => {
         try {
-          const res = await fetch("https://loomo-ai.vercel.app/api/questions/health");
+          const res = await fetch("https://future-you2-0-oh1h.vercel.app/api/questions/health");
           const data = await res.json();
           setQuestions(data);
           console.log(questions);
