@@ -7,34 +7,36 @@ const Quiz = () => {
   const [answers, setAnswers] = useState({});
   const [loading, setLoading] = useState(true);
   const [submitted, setSubmitted] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
-    // Fetch questions from backend
-    useEffect(() => {
-      const fetchQuestions = async () => {
-        try {
-          const res = await fetch("http://localhost:5000/api/questions/health");
-          const data = await res.json();
-          setQuestions(data);
-          console.log(questions);
-          setLoading(false);
-        } catch (error) {
-          console.error("Error fetching questions:", error);
-          setLoading(false);
-        }
-      };
-  
-      fetchQuestions();
-    }, []);
+  // Fetch questions from backend
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/questions/health");
+        const data = await res.json();
+        setQuestions(data);
+        console.log(questions);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchQuestions();
+  }, []);
 
   // Guard until data is loaded
-  if (loading) return <div className="p-10 text-center">Loading questions...</div>;
-  if (!questions.length) return <div className="p-10 text-center">No questions found.</div>;
+  if (loading)
+    return <div className="p-10 text-center">Loading questions...</div>;
+  if (!questions.length)
+    return <div className="p-10 text-center">No questions found.</div>;
 
   if (submitted || currentQuestionIndex >= questions.length) {
     return <div className="p-10 text-center">Submitting your answers...</div>;
   }
-  
+
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerChange = (value) => {
@@ -43,14 +45,12 @@ const Quiz = () => {
       [currentQuestion.id]: value,
     }));
 
-    
-  
     // If it's a select question, auto move to next (after a short delay)
     if (currentQuestion.type === "select") {
       const followUp = currentQuestion.options?.find(
         (option) => option.value === value
       )?.followUp;
-  
+
       setTimeout(() => {
         if (followUp) {
           const followUpIndex = questions.findIndex((q) => q.id === followUp);
@@ -62,10 +62,8 @@ const Quiz = () => {
         setCurrentQuestionIndex((prev) => prev + 1);
       }, 300); // slight delay for smoothness
     }
-    
   };
   console.log("Users Answers:", answers);
-  
 
   const goNext = () => {
     const answer = answers[currentQuestion.id];
@@ -93,26 +91,24 @@ const Quiz = () => {
 
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
-  const sendAnswersToBackend=async(answers)=>{
-    try{
+  const sendAnswersToBackend = async (answers) => {
+    try {
       setSubmitted(true);
-      console.log("Sending Answers:",answers);
-      const response=await fetch('https://loomo-ai-heyoojatinheres-projects.vercel.app/submit-answers', {
+      console.log("Sending Answers:", answers);
+      const response = await fetch("http://localhost:5000/submit-answers", {
         method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify(answers)
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(answers),
       });
-      const text= await response.text();
-      const data=JSON.parse(text);
-      console.log("Data Recieved:",data);
+      const text = await response.text();
+      const data = JSON.parse(text);
+      console.log("Data Recieved:", data);
 
       navigate("/result", { state: { analysis: data.analysis } });
-      
-    }catch(error){
+    } catch (error) {
       console.error("Error sending answers:", error);
     }
-  }
-
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
@@ -121,12 +117,10 @@ const Quiz = () => {
         <div className="mb-4 text-sm text-gray-500">
           Question {currentQuestionIndex + 1} of {questions.length}
         </div>
-
         {/* Question */}
         <h2 className="text-2xl font-semibold mb-6 text-gray-800">
           {currentQuestion.question}
         </h2>
-
         {/* Input or Options */}
         {currentQuestion.type === "input" ? (
           <input
@@ -153,7 +147,6 @@ const Quiz = () => {
             ))}
           </div>
         )}
-
         {/* Navigation Buttons */}
         <div className="mt-8 flex justify-between">
           <button
@@ -166,8 +159,7 @@ const Quiz = () => {
 
           {isLastQuestion ? (
             <button
-            onClick={ ()=>sendAnswersToBackend(answers) }
-            
+              onClick={() => sendAnswersToBackend(answers)}
               disabled={!answers[currentQuestion.id]}
               className="bg-green-600 text-white px-5 py-2 rounded-xl hover:bg-green-700 disabled:opacity-50"
             >

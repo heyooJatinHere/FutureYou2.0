@@ -94,9 +94,13 @@ The user has answered the following health-related questions:
   }
 });
 
-app.listen(5000,(req, res)=>{
-  console.log("server is running on 5000...");
-})
+// For local development only
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}...`);
+  });
+}
 
 // ✅ For Vercel deployment: export app, no app.listen()
 export default app;
