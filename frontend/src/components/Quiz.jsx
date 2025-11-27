@@ -14,7 +14,7 @@ const Quiz = () => {
     const fetchQuestions = async () => {
       try {
         const res = await fetch(
-          "https://futureyou2-0.onrender.com//api/questions/health"
+          "https://futureyou2-0.onrender.com/api/questions/health"
         );
         const data = await res.json();
         setQuestions(data);
@@ -98,7 +98,7 @@ const Quiz = () => {
       setSubmitted(true);
       console.log("Sending Answers:", answers);
       const response = await fetch(
-        "https://futureyou2-0.onrender.com//submit-answers",
+        "https://futureyou2-0.onrender.com/submit-answers",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
