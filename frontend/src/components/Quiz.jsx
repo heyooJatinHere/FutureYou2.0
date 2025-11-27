@@ -13,7 +13,9 @@ const Quiz = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/questions/health");
+        const res = await fetch(
+          "https://futureyou2-0.onrender.com//api/questions/health"
+        );
         const data = await res.json();
         setQuestions(data);
         console.log(questions);
@@ -95,11 +97,14 @@ const Quiz = () => {
     try {
       setSubmitted(true);
       console.log("Sending Answers:", answers);
-      const response = await fetch("http://localhost:5000/submit-answers", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(answers),
-      });
+      const response = await fetch(
+        "https://futureyou2-0.onrender.com//submit-answers",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(answers),
+        }
+      );
       const text = await response.text();
       const data = JSON.parse(text);
       console.log("Data Recieved:", data);
