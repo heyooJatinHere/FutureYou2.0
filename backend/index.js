@@ -7,22 +7,22 @@ import questionsRoutes from "./routes/questions.js";
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "https://future-you2-0.vercel.app" }));
-// app.use(cors());
+// app.use(cors({ origin: "https://future-you2-0.vercel.app" }));
+// app.use(cors({ origin: "https://localhost:5173" }));
+app.use(cors());
 app.use(express.json());
 
-app.use('/api/questions', questionsRoutes);
+app.use("/api/questions", questionsRoutes);
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }); // use env for safety
 
 app.get("/", (req, res) => {
-    res.send("API working!");
-  });
+  res.send("API working!");
+});
 
-  app.get("/submit-answers", (req, res) => {
-    res.send("This route accepts POST requests only.");
-  });
-  
+app.get("/submit-answers", (req, res) => {
+  res.send("This route accepts POST requests only.");
+});
 
 app.post("/submit-answers", async (req, res) => {
   try {
@@ -87,7 +87,6 @@ The user has answered the following health-related questions:
     const response = result.text;
     console.log("AI Response:", response);
     res.status(200).json({ analysis: response });
-
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ error: "Something went wrong" });
