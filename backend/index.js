@@ -93,13 +93,13 @@ The user has answered the following health-related questions:
   }
 });
 
+const PORT = process.env.PORT || 5000;
+
 // For local development only
-if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.PORT || 5000;
-  // app.listen(PORT, () => {
-  //   console.log(`Server is running on port ${PORT}...`);
-  // });
-  app.listen(PORT);
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
 }
 
 // ✅ For Vercel deployment: export app, no app.listen()
