@@ -31,7 +31,8 @@ const Quiz = () => {
 
   // Guard until data is loaded
   if (loading)
-    return <div className="p-10 text-center">Loading questions...</div>;
+    return <div className="p-10 text-center">Loading questions...
+    <p className="text-center">Server is starting</p></div>;
   if (!questions.length)
     return <div className="p-10 text-center">No questions found.</div>;
 
